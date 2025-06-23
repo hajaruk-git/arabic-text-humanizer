@@ -9,7 +9,11 @@ def my_gpt(prompt):
     messages = [
     {
         "role": "system",
-        "content": "أنت مساعد لغوي صارم. لا يُسمح لك باستخدام أي لهجة عربية على الإطلاق. هذا يشمل: المصرية، الشامية، الخليجية، المغاربية، أو أي لهجة أخرى. يُسمح فقط باستخدام اللغة العربية الفصحى البسيطة والواضحة. لا تكتب أبدًا كلمات مثل: اللي، مو، صار، عشان، إلخ. أي استخدام للهجة يعتبر خطأ. يجب أن تكتب بأسلوب فصيح فقط، حتى وإن كان بسيطًا."
+        "content": """You are an assistant that rewrites Arabic texts in a simple written style using only Classical Standard Arabic (Fus'ha).
+        You must never use any dialectal or spoken Arabic expressions under any circumstance.
+        Your writing should reflect the level of a high school student with average academic skills — not advanced, not polished.
+        Do not use complex sentence structures, sophisticated grammar and advanced vocabulary.
+        """
     },
     {
         "role": "user",
@@ -17,7 +21,7 @@ def my_gpt(prompt):
     }
 ]
     response = client.chat.completions.create(
-        model="gpt-3.5-turbo",
+        model="gpt-4o",
         messages=messages,
         temperature=0.5,
     )

@@ -12,24 +12,20 @@ if st.button("Adapt"):
     
     else:
         prompt = f"""
-أعد صياغة النص الموجود بين القوسين بأسلوب طالب في المرحلة الثانوية، مستواه عادي وليس ممتازًا.
+Your task is to rewrite the text between the brackets in a simple written style using only Classical Standard Arabic (Fus'ha).
+You must never use Arabic dialect like Egyptian, Levantine (Syrian, Lebanese, Palestinian, Jordanian), Gulf, Iraqi,
+Maghrebi (Moroccan, Algerian, Tunisian, Libyan), Sudanese, Yemeni, or any other spoken variant.
+You must never use any dialectal expression (e.g., 'بيكون', 'مو', 'صار', 'عشان', etc.).
 
-اكتب فقط باللغة العربية الفصحى البسيطة والواضحة. لا تستخدم أي لهجة محكية أو كلمات غير فصيحة.
+You must rewrite the text as if it were written by a high school student with average academic skills — not advanced, not polished.
+Do not use complex language. Use short, simple sentences and basic vocabulary that a student might use.
+Include minor grammar issues or awkward phrasing, as long as the meaning is clear and the Arabic remains classical, meaning written Arabic and not spoken.
 
-تجنب الأسلوب الأكاديمي أو اللغة المعقدة. استخدم جُملاً قصيرة وكلمات مألوفة لطلاب المدارس.
-
-لا تكتب النص بشكل مثالي. اجعله يبدو كأنه كُتب من طرف طالب عادي: يُسمح بوجود بعض التراكيب البسيطة أو التعابير غير المتقنة، ما دام المعنى واضحًا.
-
-لا تختصر ولا تحذف أي فكرة من النص الأصلي. فقط أعد كتابته بأسلوب أقل رسمية، أبسط، وأقرب لما يكتبه الطلاب فعلاً.
-
-ولا تستخدم أبدًا كلمات أو تعابير من اللهجات، حتى وإن كانت شائعة.
-
-النص بين القوسين هو:
+Do not summarize, do not shorten, and do not remove or merge any idea. Every sentence and idea from the original must appear in the rewritten version.
+You are not allowed to ignore or compress content. Your task is to rewrite it, not to improve or clean it.
+The text between brackets is:
 [{user_input}]
 """
-
-
-
 
         answer = my_gpt(prompt)
 
@@ -38,3 +34,4 @@ if st.button("Adapt"):
     f"<div dir='rtl' style='text-align: right; font-size: 20px;'>{answer}</div>",
     unsafe_allow_html=True
 )
+        st.markdown("---")
